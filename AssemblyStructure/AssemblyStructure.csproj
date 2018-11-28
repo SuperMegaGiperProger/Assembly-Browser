@@ -38,6 +38,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyStructure.cs" />
+    <Compile Include="Models\FieldDescription.cs" />
+    <Compile Include="Models\IMemberDescription.cs" />
+    <Compile Include="Models\MethodDescription.cs" />
+    <Compile Include="Models\NamespaceDescription.cs" />
+    <Compile Include="Models\PropertyDescription.cs" />
+    <Compile Include="Models\SignatureDescription.cs" />
+    <Compile Include="Models\TypeDescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
