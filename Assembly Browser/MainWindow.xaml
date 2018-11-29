@@ -4,10 +4,53 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assembly_Browser"
+        xmlns:models="clr-namespace:AssemblyStructure.Models;assembly=AssemblyStructure"
         mc:Ignorable="d"
         Title="Assembly Browser" Height="823.803" Width="785.638">
+    <Window.DataContext>
+        <local:MainWindowVM />
+    </Window.DataContext>
+    <Window.Resources>
+        <HierarchicalDataTemplate DataType="{x:Type models:NamespaceDescription}" ItemsSource="{Binding Types}">
+            <TextBlock Text="{Binding Name}" />
+        </HierarchicalDataTemplate>
+
+        <DataTemplate DataType="{x:Type models:TypeDescription}">
+            <TreeViewItem Header="{Binding Name}">
+                <TreeViewItem Header="Fields" ItemsSource="{Binding Fields}" />
+                <TreeViewItem Header="Properties" ItemsSource="{Binding Properties}" />
+                <TreeViewItem Header="Methods" ItemsSource="{Binding Methods}" />
+            </TreeViewItem>
+        </DataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type models:FieldDescription}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Type.Name}" Foreground="DarkBlue" />
+                <TextBlock Text=" " />
+                <TextBlock Text="{Binding Name}" />
+            </StackPanel>
+        </HierarchicalDataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type models:PropertyDescription}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Type.Name}" Foreground="DarkBlue" />
+                <TextBlock Text=" " />
+                <TextBlock Text="{Binding Name}" />
+            </StackPanel>
+        </HierarchicalDataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type models:MethodDescription}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding FullSignature}" Foreground="DarkBlue" />
+                <TextBlock Text=" " />
+                <TextBlock Text="{Binding Name}" />
+            </StackPanel>
+        </HierarchicalDataTemplate>
+    </Window.Resources>
     <Grid>
-        <TreeView x:Name="AssemblyTreeView" HorizontalAlignment="Left" Height="748" Margin="10,35,0,0" VerticalAlignment="Top" Width="758"/>
-        <Button x:Name="OpenAssemblyButton" Content="Choose file" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="166"/>
+        <Button x:Name="OpenAssemblyButton" Content="Choose file" HorizontalAlignment="Left" Margin="10,10,0,0"
+                VerticalAlignment="Top" Width="166" Command="{Binding OpenFileDialogCommand}" />
+        <TreeView x:Name="AssemblyTreeView" HorizontalAlignment="Left" Height="748" Margin="10,35,0,0"
+                  VerticalAlignment="Top" Width="758" ItemsSource="{Binding Namespaces}" />
     </Grid>
 </Window>

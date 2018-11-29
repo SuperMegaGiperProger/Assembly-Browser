@@ -1,4 +1,7 @@
-﻿namespace Assembly_Browser
+﻿using System.Windows;
+using Microsoft.Win32;
+
+namespace Assembly_Browser
 {
     public partial class MainWindow
     {

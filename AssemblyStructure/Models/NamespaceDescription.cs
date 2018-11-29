@@ -5,8 +5,8 @@ namespace AssemblyStructure.Models
 {
     public class NamespaceDescription
     {
-        public readonly string Name;
-        public readonly List<TypeDescription> Types;
+        public string Name { get; }
+        public List<TypeDescription> Types { get; }
 
         public NamespaceDescription(string name, IEnumerable<TypeDescription> types = null)
         {

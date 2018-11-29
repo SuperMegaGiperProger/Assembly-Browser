@@ -37,7 +37,7 @@ namespace TestAssemblyStructure
                 Assert.NotNull(class1);
 
                 AssertMemberType("Field1", typeof(string), class1.Fields);
-                AssertMemberType("Field2", typeof(List<int>), class1.Fields);
+                AssertMemberType("Field2", typeof(long), class1.Fields);
                 AssertMemberType("Prop1", typeof(int), class1.Properties);
                 AssertMemberType("Prop2", typeof(string), class1.Properties);
 

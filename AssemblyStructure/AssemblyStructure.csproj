@@ -44,7 +44,6 @@
     <Compile Include="Models\MethodDescription.cs" />
     <Compile Include="Models\NamespaceDescription.cs" />
     <Compile Include="Models\PropertyDescription.cs" />
-    <Compile Include="Models\SignatureDescription.cs" />
     <Compile Include="Models\TypeDescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
